@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
-import postcss from 'rollup-plugin-postcss'
+import { babel } from '@rollup/plugin-babel';
 
 const pkgJson = require('./package.json');
 
@@ -27,8 +27,8 @@ export default [
             resolver(),
             commonjs(),
             json(),
+            babel({ babelHelpers: 'bundled', exclude: 'node_modules/**' }),
             typescript({ tsconfig: './tsconfig.json' }),
-            postcss(),
             terser()
         ]
     },
