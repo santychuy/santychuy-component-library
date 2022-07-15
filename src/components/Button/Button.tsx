@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import './styles.css';
 
-interface ButtonProps {
+export interface ButtonProps {
     label: string;
 }
 
